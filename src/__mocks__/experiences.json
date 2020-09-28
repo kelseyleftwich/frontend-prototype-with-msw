@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "name": "Oyster Grilling in Historic Mid-City",
+    "description": "We'll meet at Jazz after Dark. After introductions and a complementary cocktail, we'll move to the courtyard for a hands-on oyster preparation and cooking demo.",
+    "format": "Cooking Class",
+    "length": 2,
+    "guide": {
+      "name": "Aneesa Travis",
+      "biography": "Having traveled the world and tasted the best it has to offer, Aneesa is excited to show you the best of her hometown!"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Garden District Food and History Tour",
+    "description": "The Garden District mansions, cemeteries, and ancient live oaks are a feast for a eyes that pairs perfectly with the Creole feast we have planned for the rest of you!",
+    "format": "Walking Tour",
+    "length": 2,
+    "guide": {
+      "name": "Louie Martin",
+      "biography": "A Mid-City native, Louie works with local chefs and artists, many who are life-long friends, to welcome newcomers to the city the best way he knows how: through food!"
+    }
+  }
+]
