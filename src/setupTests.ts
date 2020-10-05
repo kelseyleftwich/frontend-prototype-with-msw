@@ -5,6 +5,8 @@
 import '@testing-library/jest-dom/extend-expect';
 
 import { server } from './__mocks__/server';
+import MutationObserver from '@sheerun/mutationobserver-shim';
+
 // Establish API mocking before all tests.
 beforeAll(() => server.listen());
 
@@ -14,3 +16,5 @@ afterEach(() => server.resetHandlers());
 
 // Clean up after the tests are finished.
 afterAll(() => server.close());
+
+window.MutationObserver = MutationObserver;
