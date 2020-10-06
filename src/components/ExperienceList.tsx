@@ -30,6 +30,10 @@ const ExperienceList: React.FC<Props> = ({ experiences }) => {
         alignItems="flex-end"
       >
         <TextField
+          id="search"
+          InputLabelProps={{
+            htmlFor: 'search',
+          }}
           label="Search"
           value={searchText}
           onChange={({ target: { value } }) => setSearchText(value)}

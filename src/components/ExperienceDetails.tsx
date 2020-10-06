@@ -3,23 +3,32 @@ import { Box, Typography, Button, CircularProgress } from '@material-ui/core';
 import { Experience } from '../types/types';
 import { useParams } from 'react-router-dom';
 
-type Props = {
-  experience: Experience;
-};
-
-const ExperienceDetails: React.FunctionComponent<Props> = () => {
+const ExperienceDetails: React.FunctionComponent = () => {
   const [experience, setExperience] = useState<undefined | Experience>(
     undefined
   );
   const [hasError, setHasError] = useState(false);
 
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
+    let canceled = false;
     fetch(`/experience/${id}`)
       .then((response) => response.json())
-      .then((data) => setExperience(data))
-      .catch((err) => setHasError(true));
+      .then((data) => {
+        if (!canceled) {
+          setExperience(data);
+        }
+      })
+      .catch((err) => {
+        if (!canceled) {
+          setHasError(true);
+        }
+      });
+
+    return () => {
+      canceled = true;
+    };
   }, [id]);
 
   if (hasError) {
@@ -33,12 +42,13 @@ const ExperienceDetails: React.FunctionComponent<Props> = () => {
     );
   }
 
-  if (!experience)
+  if (!experience) {
     return (
       <Box component="main" mt={3} display="flex" justifyContent="center">
         <CircularProgress />
       </Box>
     );
+  }
 
   return (
     <Box component="main" mt={3}>
